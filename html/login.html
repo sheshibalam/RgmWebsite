@@ -1,0 +1,32 @@
+<div class="container-fluid p-2">
+    <div class="offset-3 col-5 card">
+        <div class="card-header bg-primary">
+            <h6 class="text-center text-white">Admin/Student/Faculty Login</h6>
+        </div>
+        <div class="card-body">
+            <form class="form-control" autocomplete="off" id="loginForm">
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required autofocus>                  
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" required autofocus>
+                </div>
+                <button type="submit" class="offset-4 btn btn-primary">Login</button>
+              </form>
+        </div>
+    </div>
+</div>
+<script type="text/javaScript">
+  jQuery("#loginForm").submit(function(event){
+    event.preventDefault();
+    var email=jQuery("#email").val();
+    var password =$("#password").val();
+    $.post("/login",{email:email,password:password}, function(response){
+      alert(response);
+    });
+   
+  });
+
+</script>

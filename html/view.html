@@ -1,0 +1,39 @@
+<script src="api/api.js" type="text/javaScript"></script>
+<div class="container-fluid p-2">
+    <h5 class="text-center text-danger">List of student(s)</h5>
+    <table class="table table-striped table-responsive table-bordered border-white text-justify">
+        <thead>
+            <tr class="text-center bg-primary text-white">                
+                <td>ID</td>
+                <td>Name</td>
+                <td>Gender</td>
+                <td>Class</td>
+                <td>Seat</td>
+                <td>Remarks</td>
+            </tr>
+        </thead>
+        <tbody id="studentTableBody"></tbody>        
+    </table>
+</div>
+<script type="text/javaSCript">
+    $(document).ready(function(){
+        var data = "";
+        for(i=0; i<studentList.length;i++){
+            if(studentList[i].Gender == 1){
+                gender = "Male";
+            }
+            else{
+                gender = "Female";
+            }
+            data += "<tr class='text-justify'>"
+                        + "<td class='text-right'>"+studentList[i].ID+"</td>"
+                        + "<td>"+studentList[i].Name+"</td>"
+                        + "<td>"+gender+"</td>"
+                        + "<td class='text-right'>"+studentList[i].Class+"</td>"
+                        + "<td class='text-right'>"+studentList[i].Seat+"</td>"
+                        + "<td>"+studentList[i].Info+"</td>"
+                    + "</tr>";
+        }
+        $("#studentTableBody").html(data);
+    });
+</script>
